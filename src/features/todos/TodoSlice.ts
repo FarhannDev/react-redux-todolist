@@ -2,11 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Todo, TodoState } from '../../interfaces/todo';
 import { nanoid } from 'nanoid'
 import { hasLocalStorage, removeLocalStorage, setLocalStorage } from '../../utils/localStorage';
+import { RootState } from '../../app/store';
 
 const initialState: TodoState = {
   todos: hasLocalStorage('todos'), 
   filter: 'all',
-  search: ''}
+  search: ''
+}
 
 const todoSlice = createSlice({
   name: "todos",
@@ -82,6 +84,9 @@ export const {
     filterTodo, 
     searchTodo
   } = todoSlice.actions;
+
+export const selectCount = (state: RootState) => state.todo.todos;
+
 
 export default todoSlice.reducer;
 
