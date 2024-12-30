@@ -85,7 +85,9 @@ export const {
     searchTodo
   } = todoSlice.actions;
 
-export const selectCount = (state: RootState) => state.todo.todos;
+export const selectCount = (state: RootState) => state.todos.todos;
+
+export const getAllTodos = (state: RootState) => state.todos.todos;
 
 
 export default todoSlice.reducer;
